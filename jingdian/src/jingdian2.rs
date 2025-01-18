@@ -18,9 +18,21 @@ use crate::common_struct::Solution;
 
 
 impl Solution {
+    /// 排序后进行比较
+    ///
+    pub fn check_permutation_0(s1: String, s2: String) -> bool {
+        if s1.len() != s2.len() {
+            return false;
+        }
+        let (mut s1, mut s2) = (Vec::from(s1), Vec::from(s2));
+        s1.sort();
+        s2.sort();
+        s1 == s2
+    }
+
     /// 重排列，说明组成键值对是能够完全一致，key位字符，value位字符个个数
     /// 使用 hashmap进行数据存储
-    pub fn check_permutation(s1: String, s2: String) -> bool {
+    pub fn check_permutation_1(s1: String, s2: String) -> bool {
         // 剪枝
         if s1.len() != s2.len() {
             return false;
@@ -96,9 +108,15 @@ mod tests {
     use crate::common_struct::Solution;
 
     #[test]
-    fn test_check_permutation() {
-        assert_eq!(false, Solution::check_permutation("abc".to_string(), "bad".to_string()));
-        assert_eq!(true, Solution::check_permutation("abc".to_string(), "cba".to_string()));
+    fn test_check_permutation_0() {
+        assert_eq!(false, Solution::check_permutation_0("abc".to_string(), "bad".to_string()));
+        assert_eq!(true, Solution::check_permutation_0("abc".to_string(), "cba".to_string()));
+    }
+
+    #[test]
+    fn test_check_permutation_1() {
+        assert_eq!(false, Solution::check_permutation_1("abc".to_string(), "bad".to_string()));
+        assert_eq!(true, Solution::check_permutation_1("abc".to_string(), "cba".to_string()));
     }
 
     #[test]
