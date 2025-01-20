@@ -6,6 +6,7 @@ mod jingdian4;
 mod jingdian5;
 mod jingdian6;
 mod jingdian7;
+mod jingdian8;
 
 fn main() {
     println!("Hello, world!");
