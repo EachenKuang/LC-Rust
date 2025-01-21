@@ -33,7 +33,6 @@
 // ]
 use crate::common_struct::Solution;
 
-
 impl Solution {
     /// 遍历两次的方法
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
@@ -118,26 +117,27 @@ mod tests {
     use crate::common_struct::Solution;
 
     fn get_start_matrix() -> Vec<Vec<i32>> {
-         vec![
-            vec![1,2,3,4],
-            vec![5,0,7,8],
-            vec![9,10,11,12],
-            vec![13,14,15,16],
-        ].clone()
+        vec![
+            vec![1, 2, 3, 4],
+            vec![5, 0, 7, 8],
+            vec![9, 10, 11, 12],
+            vec![13, 14, 15, 16],
+        ]
+        .clone()
     }
 
     fn get_result_matrix() -> Vec<Vec<i32>> {
         vec![
-            vec![1,0,3,4],
-            vec![0,0,0,0],
-            vec![9,0,11,12],
-            vec![13,0,15,16],
+            vec![1, 0, 3, 4],
+            vec![0, 0, 0, 0],
+            vec![9, 0, 11, 12],
+            vec![13, 0, 15, 16],
         ]
     }
 
     #[test]
     fn test_set_zeroes() {
-        let mut matrix= get_start_matrix();
+        let mut matrix = get_start_matrix();
         Solution::set_zeroes(&mut matrix);
         println!("{:?}", matrix);
         assert_eq!(get_result_matrix(), matrix)
@@ -145,10 +145,9 @@ mod tests {
 
     #[test]
     fn test_set_zeroes_2() {
-        let mut matrix= get_start_matrix();
+        let mut matrix = get_start_matrix();
         Solution::set_zeroes_2(&mut matrix);
         println!("{:?}", matrix);
         assert_eq!(get_result_matrix(), matrix)
     }
 }
-
